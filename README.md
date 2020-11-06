@@ -2,7 +2,7 @@
 
 This project aims to provide a type-safe coding environment for ServiceNow Scripted REST API components. Enables vscode-driven development (CI), at present.
 
-TODO: continuous deployment workflow (CD).
+WIP: continuous deployment workflow (CD).
 
 
 ## Getting Started
@@ -17,7 +17,13 @@ npm install
 
 ## Commands
 
-### Generate build artifacts
+### 1. Run Tests
+
+```terminal
+npm run test
+```
+
+### 2. Generate Build Artifacts
 
 ```terminal
 npm run build
@@ -26,8 +32,3 @@ npm run build
 Built javascript files will land in ./build/ -- the contents of which can be copy/pasted into a
 ServiceNow Scripted REST API
 
-### Run tests
-
-```terminal
-npm run test
-```
