@@ -1,6 +1,6 @@
 # servicenow-scriped-rest-api-master
 
-This project aims to provide a type-safe coding environment for ServiceNow Scripted REST API components. Currently, this project enables vscode-driven implementation and unit testing (CI).
+This project aims to provide a type-safe coding environment for ServiceNow Scripted REST API components. Enables vscode-driven development (CI), at present.
 
 TODO: continuous deployment workflow (CD).
 
