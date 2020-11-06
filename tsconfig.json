@@ -5,16 +5,16 @@
         "outDir": "./build",
         "rootDir": "./src",
         "allowJs": true,
-        "target": "ES3",
-        "module": "none",
+        "target": "esnext",
+        "module": "esnext",
         "sourceMap": false,
         "baseUrl": ".",
         "noImplicitAny": true,
         "strictNullChecks": true,
         "moduleResolution": "node",
         "noUnusedLocals": false,
-        "skipLibCheck": true,
         "types": [
+            "node",
             "jest"
         ]
     },
