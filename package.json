@@ -1,5 +1,5 @@
 {
-  "name": "button",
+  "name": "rsc-servicenow-scripted-rest-api-master",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,8 +8,7 @@
     "lint": "./node_modules/.bin/tslint --project tsconfig.json",
     "build": "npm run lint-fix && npm run lint && rimraf ./build/ && npm run webpack",
     "webpack": "./node_modules/.bin/webpack",
-    "tsc": "npm run lint-fix && npm run lint && rimraf ./build/ && tsc",
-    "test": "jest --env=node --colors test"
+    "test": "jest --colors test"
   },
   "dependencies": {},
   "devDependencies": {

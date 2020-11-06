@@ -1,0 +1,157 @@
+
+
+(request, response)
+
+    request: { 
+        body: {
+            data: {
+                hits: [
+                    {json msg 1},
+                    {json msg 2},
+                    {json msg 3},
+                    {json msg 4},
+                ]
+            }
+        }
+    }
+
+{
+
+    //case 1 // 1 app-name, 1 error ==> 1 incident to be created
+
+    createNewIncident(request.body.data.hits[0])
+}
+
+{    
+    
+    //case 2 // 1 app-name, 2 error ==> 1 incident to be created
+
+    createNewIncident(request.body.data.hits[0])
+
+}
+
+{    
+    
+    //case 3 // 1 app-name, 3 error | 2 unique ==> 2 incident to be created
+
+    uniqueErrors = request.body.data.hits.groupBy('uniqueness condition') // [{unique json 1}, {unique json 2 }] 
+
+    for error in uniqueErrors {
+        createNewIncident(error)
+    }
+
+}
+
+{    
+    
+    //case 4 // 1 app-name, 4 error | 2 unique ==> 2 incident to be created
+
+    uniqueErrors = request.body.data.hits.groupBy('uniqueness condition') // [{unique json 1}, {unique json 2 }] 
+
+    for error in uniqueErrors {
+        createNewIncident(error)
+    }
+
+}
+
+{    
+    
+    //case 5 // 2 app-name, 2 error | 2 unique ==> 2 incident to be created (1 per app-name)
+
+    messagesGroupedByAppName = request.body.data.hits.groupBy('app') 
+        // returns {  app-name-1: [json messages], app-name-2: [json messages] }
+
+    for appNameMessages in messagesGroupedByAppName {
+
+        uniqueErrors = appNameMessages.groupBy('uniqueness condition') // [{unique json 1}, {unique json 2 }] 
+
+        for error in uniqueErrors {
+            createNewIncident(error)
+        }
+    }
+
+
+}
+
+{    
+    
+    //case 6 // 2 app-name, 3 error | 2 unique ==> 2 incident to be created (1 per app-name)
+
+    messagesGroupedByAppName = request.body.data.hits.groupBy('app') 
+        // returns {  app-name-1: [json messages], app-name-2: [json messages] }
+
+    for appNameMessages in messagesGroupedByAppName {
+
+        uniqueErrors = appNameMessages.groupBy('uniqueness condition') // [{unique json 1}, {unique json 2 }] 
+
+        for error in uniqueErrors {
+            createNewIncident(error)
+        }
+    }
+
+
+}
+
+{    
+    
+    //case 7 // 2 app-name, 4 error | 2 unique ==> 2 incident to be created (1 per app-name)
+
+    messagesGroupedByAppName = request.body.data.hits.groupBy('app') 
+        // returns {  app-name-1: [json messages], app-name-2: [json messages] }
+
+    for appNameMessages in messagesGroupedByAppName {
+
+        uniqueErrors = appNameMessages.groupBy('uniqueness condition') // [{unique json 1}, {unique json 2 }] 
+
+        for error in uniqueErrors {
+            createNewIncident(error)
+        }
+    }
+
+
+}
+
+{    
+    
+    //case 8 // 2 app-name, 5 error | 3 unique ==> 3 incident to be created (2 for roc, 1 for scme)
+
+    messagesGroupedByAppName = request.body.data.hits.groupBy('app') 
+        // returns {  app-name-1: [json messages], app-name-2: [json messages] }
+
+    for appNameMessages in messagesGroupedByAppName {
+
+        uniqueErrors = appNameMessages.groupBy('uniqueness condition') // [{unique json 1}, {unique json 2 }] 
+
+        for error in uniqueErrors {
+            createNewIncident(error)
+        }
+    }
+
+
+}
+
+{    
+    
+    //case X // 20 app-name, 500 error | 350 unique ==> 350 incident to be created
+
+    messagesGroupedByAppName = request.body.data.hits.groupBy('app') 
+        // returns {  app-name-1: [json messages], app-name-2: [json messages] }
+
+    for appNameMessages in messagesGroupedByAppName {
+
+        uniqueErrors = appNameMessages.groupBy('uniqueness condition') // [{unique json 1}, {unique json 2 }] 
+
+        for error in uniqueErrors {
+            createNewIncident(error)
+        }
+    }
+
+
+}
+    
+
+
+
+
+
+

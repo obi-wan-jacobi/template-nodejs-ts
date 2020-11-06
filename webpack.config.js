@@ -1,11 +1,13 @@
 var path = require('path');
 
+var apiName = 'rsc_agg_poc';
+
 module.exports = {
     mode: 'production',
     // devtool: 'inline-source-map',
-    entry: ['./src/main.ts'],
+    entry: [`./src/${apiName}.ts`],
     output: {
-        filename: 'bundle.js',
+        filename: `${apiName}.js`,
         path: path.join(__dirname, 'build'),
         environment: {
             arrowFunction: false,
