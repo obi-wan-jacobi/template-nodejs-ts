@@ -2,8 +2,8 @@
     "compilerOptions": {
         "experimentalDecorators": true,
         "allowSyntheticDefaultImports": true,
-        "outDir": "./build",
-        "rootDir": "./src",
+        "outDir": "./dist",
+        "rootDir": ".",
         "allowJs": true,
         "target": "esnext",
         "module": "esnext",
@@ -16,12 +16,18 @@
         "types": [
             "node",
             "jest"
-        ]
+        ],
+        "paths": {
+            "src/*": ["src/*"],
+            "local/*": ["test/local/*"],
+            "e2e/*": ["test/e2e/*"]
+        }
     },
     "include": [
         "src/**/*.ts",
+        "test/**/*.ts",
     ],
     "exclude": [
-        "src/tests"
+        "node_modules"
     ]
 }
